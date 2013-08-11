@@ -1,0 +1,350 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <dos.h>
+
+void main(){
+int i,x1,y1,j,k=0,resp,x=9,y=7;
+int arreglo[16];
+
+int gd = DETECT, gm;
+
+clrscr();
+textbackground(GREEN);
+for(x1=1; x1<=80; x1++)
+{
+  for(y1=1; y1<=24; y1++)
+	{
+		if((x1>=1 && x1<=80 && y1>=1 && y1<=2)||(x1>=1 && x1<=80 && y1>=22 && y1<=24)||(y1>=1 && y1<=24 && x1>=1 && x1<=23)||(x1>=55 && x1<=80 && y1>=1 && y1<=24)||(x1>=27 && x1<=32 && y1>=3 && y1<=10)||(x1>=27 && x1<=32 && y1>=14 && y1<=21)||(x1>=36 && x1<=37 && y1>=3 && y1<=21)||(x1>=41 && x1<=43 && y1>=3 && y1<=21)||(x1==47 && y1>=3 && y1<=21)||(x1==51 && y1>=3 && y1<=21)||(x1>=41 && x1<=54 && y1>=16 && y1<=17)||(y1==6 && x1>=38 && x1<=40))
+		{
+			gotoxy(x1,y1); textcolor(BLUE); cprintf("%c%c", 001, 002);
+		}
+	}
+}
+getch();
+delay(500);
+
+for(x1=79; x1>=1; x1--)
+{
+	for(y1=24; y1>=1; y1--)
+	{
+		printf(" ");
+	}
+}
+textbackground(BLACK);
+getch();
+clrscr();
+printf("\n\t\t\tUNIVERSIDAD TECNOLOGICA DE PANAMA\n\n");
+printf("\t\tLic. en Ingenieria en Sistemas y Computacion\n\n");
+printf("\t\t\tFUNDAMENTOS DE COMPUTACION\n\n\n\n");
+printf("\tIntegrantes:\n\n");
+printf("\t\tElizabeth Guevara\n\n");
+printf("\t\tJulio Ruiz\t\t\t1IL-123\n\n");
+printf("\t\tEdgardo Santana\n\n\n\n");
+printf("\t\t\tProfa: Lic. Doris Cueto");
+getch();
+clrscr();
+
+initgraph(&gd, &gm, "C:\\TC\\BGI");
+
+setbkcolor(BLUE);
+setcolor(BLACK);
+textbackground(BLUE);
+textcolor(BLACK);
+gotoxy(5,14);
+printf("             Ingrese 1 si desea la relacion y 0 si no lo desea");
+getch();
+
+
+
+for(i=1;i<=4;i++){
+for(j=1;j<=4;j++){
+clrscr();
+gotoxy(17,13);
+printf("Desea esta relacion(%i,%i) =  ",i,j);
+scanf("%i",&resp);
+arreglo[k]=resp;
+k++;
+}
+}
+
+
+clrscr();
+window(1,1,40,25);
+
+clrscr();
+k=0;
+gotoxy(5,3);
+printf("        MATRIZ 4 x 4");
+
+gotoxy(9,5);
+printf("1");
+
+gotoxy(15,5);
+printf("2");
+
+gotoxy(21,5);
+printf("3");
+
+gotoxy(27,5);
+printf("4");
+
+gotoxy(6,7);
+printf("1");
+
+gotoxy(6,12);
+printf("2");
+
+gotoxy(6,17);
+printf("3");
+
+gotoxy(6,22);
+printf("4");
+
+for(i=1;i<=4;i++){
+
+for(j=1;j<=4;j++){
+gotoxy(x,y);
+printf("%i ",arreglo[k]);
+k++;
+x=x+6;
+}
+x=9;
+y=y+5;
+}
+getch();
+
+
+window(40,1,80,25);
+
+gotoxy(4,7);
+printf("1");
+
+gotoxy(27,7);
+printf("2");
+
+gotoxy(4,22);
+printf("3");
+
+gotoxy(27,22);
+printf("4");
+
+setcolor(CYAN);
+
+for(i=0;i<16;i++){
+switch(i) {
+
+case 0:
+/////////relacion (1,1)////////
+if(arreglo[i]==1){
+line(340, 90,  340, 70);
+line(320, 70,  340, 70);
+line(320, 70,  320, 100);
+line(320, 100, 330, 100);
+line(326, 91, 330, 100);
+line(320, 108, 330, 100);
+}
+else{}
+break;
+/////////relacion (1,1)////////
+
+
+case 1:
+//////relacion (1,2)////////////
+if(arreglo[i]==1){
+setcolor(WHITE);
+line(350, 100, 510, 100);
+line(490,80,510,100);
+line(510,100,490,120);
+///////relacion (1,2 )///////////
+}
+else{}
+break;
+
+case 2:
+/////////relacion (1,3)////////
+if(arreglo[i]==1){
+setcolor(YELLOW);
+line(339, 120, 339, 320);
+line(339, 320, 349, 307);
+line(339, 320, 330, 307);
+}
+else{}
+break;
+/////////relacion (1,3)////////
+
+case 3:
+/////////relacion (1,4)////////
+if(arreglo[i]==1){
+setcolor(RED);
+line(350, 100, 510, 340);
+line(510, 340, 507, 300);
+line(510,340, 470, 327);
+
+}
+else{}
+break;
+/////////relacion (1,4)////////
+
+case 4:
+/////////relacion (2,1)////////
+if(arreglo[i]==1){
+setcolor(GREEN);
+line(350, 100, 510, 100);
+line(350, 100, 370, 80);
+line(350, 100, 370, 120);
+}
+else{}
+break;
+/////////relacion (2,1)////////
+
+case 5:
+/////////relacion (2,2)////////
+if(arreglo[i]==1){
+line(524, 93, 524, 75);
+line(543, 100, 543, 75);
+line(524, 75, 543, 75);
+line(543, 100, 530, 100);
+line(530, 100, 535, 95);
+line(530, 100, 535, 105);
+}
+else{}
+break;
+/////////relacion (2,2)////////
+
+
+case 6:
+/////////relacion (2,3)////////
+if(arreglo[i]==1){
+line(350, 340, 514, 100);
+line(350,340,350,320);
+line(350,340,378,330);
+}
+else{}
+break;
+/////////relacion (2,3)////////
+
+case 7:
+/////////relacion (2,4)////////
+if(arreglo[i]==1){
+setcolor(MAGENTA);
+line(529, 120, 529, 320);
+line(529, 320, 539, 307);
+line(529, 320, 520, 307);
+}
+else{}
+break;
+/////////relacion (2,4)////////
+
+case 8:
+/////////relacion (3,1)////////
+if(arreglo[i]==1){
+setcolor(MAGENTA);
+line(339, 120, 339, 320);
+line(339, 120, 350, 140);
+line(339, 120, 328, 140);
+}
+else{}
+break;
+/////////relacion (3,1)////////
+
+case 9:
+/////////relacion (3,2)////////
+if(arreglo[i]==1){
+line(350, 340, 514, 100);
+line(514,100,510,120);
+line(514,100,498,102);
+}
+else{}
+break;
+/////////relacion (3,2)////////
+
+case 10:
+/////////relacion (3,3)////////
+if(arreglo[i]==1){
+setcolor(GREEN);
+line(340, 370,  340, 355);
+line(320, 340,  330, 340);
+line(320, 340,  320, 370);
+line(320, 370, 340, 370);
+line(325, 335, 330, 340);
+line(320, 345, 330, 340);
+}
+else{}
+break;
+
+/////////relacion (3,3)////////
+
+
+case 11:
+/////////relacion (3,4)////////
+if(arreglo[i]==1){
+setcolor(CYAN);
+line(350, 340, 510, 340);
+line(490, 320, 510, 340);
+line(510, 340, 490, 360);
+}
+else{}
+break;
+/////////relacion (3,4)////////
+
+
+case 12:
+/////////relacion (4,1)////////
+if(arreglo[i]==1){
+line(350, 100, 510, 340);
+line(350, 100, 360, 140);
+line(350,100, 382, 113);
+}
+else{}
+break;
+/////////relacion (4,1)////////
+
+case 13:
+/////////relacion (4,2)////////
+if(arreglo[i]==1){
+line(529, 120, 529, 320);
+line(529, 120, 539, 128);
+line(529, 120, 520, 128);
+}
+else{}
+break;
+/////////relacion (4,2)////////
+
+case 14:
+/////////relacion (4,3)////////
+if(arreglo[i]==1){
+setcolor(LIGHTGRAY);
+line(350, 340, 510, 340);
+line(370, 320, 350, 340);
+line(350, 340, 370, 360);
+}
+else{}
+break;
+/////////relacion (4,3)////////
+
+
+case 15:
+/////////relacion (4,4)////////
+if(arreglo[i]==1){
+setcolor(CYAN);
+line(524, 370, 524, 347);
+line(543, 370, 543, 340);
+line(535, 340, 543, 340);
+line(543, 370, 524, 370);
+line(530, 340, 535, 335);
+line(530, 340, 535, 345);
+}
+else{}
+break;
+
+/////////relacion (4,4)////////
+
+
+
+}
+
+}
+getch();
+closegraph();
+}
