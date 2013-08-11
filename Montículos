@@ -1,0 +1,89 @@
+//Elizabeth Guevara y Julio Ruiz
+
+#include <conio.h>
+#include <stdio.h>
+
+void insertar(int x, int *v, int num)
+{
+  int aux;
+	v[num] = x;
+	while((v[(num-1)/2]) < (v[num]))
+	{
+		aux = v[(num-1)/2];
+		v[(num-1)/2] = v[num];
+		v[num] = aux;
+		num = (num-1)/2;
+		printf("%i", num);
+	}
+}
+
+int eliminar(int *v, int num)
+{
+	int x=v[0], i=0, y=1;
+	v[0] = v[--num];
+	while(y < num)
+	{
+		if((y+1<num) && (v[y+1] > v[y]))
+		{
+			y++;
+		}
+		if(v[i] < v[y])
+		{
+			int aux;
+			aux = v[i];
+			v[i] = v[y];
+			v[y] = aux;
+			i = y;
+			y = ((2*i) +1);
+		}
+		else
+		{
+			y = num;
+		}
+	}
+	return x;
+}
+
+void ordenar(int *v, int num)
+{
+	int i, *w = new int[num];
+
+	for(i=0; i<num; i++)
+	{
+		insertar(v[i], w, i);
+	}
+	for(i=num; i>0; i--)
+	{
+		v[i-1] = eliminar(w, i);
+	}
+}
+
+int main()
+{
+	int *v, num;
+	clrscr();
+	printf("\t\t\t\tMONTICULO\n\n");
+	printf("\tIntroduzca la cantidad de datos del monticulo:  ");
+	scanf("%d",&num);
+	printf("\n\n");
+	printf("\tAhora introduzca los valores\n");
+	v = new int[num];
+	printf("\n\n");
+	for(int i=0; i<num; i++)
+	{
+		printf("\tv[%d] = ",i);
+		scanf("%d",&v[i]);
+		printf("\n");
+	}
+
+	printf("El Monticulo Ordenado seria de la siguiente manera:\n");
+
+	ordenar(v, num);
+
+	for(i=0; i<num; i++)
+	{
+		printf("v[%d]=%d\n", i, v[i]);
+	}
+	getch();
+	return 0;
+}
