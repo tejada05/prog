@@ -1,0 +1,39 @@
+import java.io.*;
+class Hora
+{
+private int hora;
+  public void asig_hora(int h)
+	{
+		hora=h;
+	}
+	public int cant_minutos()
+	{
+		int m;
+		m=(60*hora);
+		return m;
+	}
+}
+    public class horas 
+    	{
+    	public static void main(String[] args)
+    		{
+    		int hor;
+
+    		Hora ob= new Hora();
+    		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    			try
+    			{
+    			System.out.println("Ingrese la cantidad de horas");
+    			hor= Integer.parseInt(br.readLine());
+    			ob. asig_hora (hor);
+
+    			System.out.println("Cantidad de minutos:"+ob.cant_minutos());
+    			}
+
+    	catch(Exception ex)
+    	{
+    		System.out.println("Error de E/S o de conversion");
+    	}
+   	}
+    }
