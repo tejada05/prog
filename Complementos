@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+
+/******************************* Julio Ruiz ********************************/
+/******************************* 8-860-695 *********************************/
+/******************************** 1il-123 **********************************/
+
+main()
+{
+int i, j, m, s, d, dif1, dif2, dif3, opc=0, total, num, NP[15], NN[15];
+long int n, u, cont;
+
+while(opc<4)
+{
+
+printf("\tCOMPLEMENTOS\n\n");
+printf("\t\t1. Complemento a 2\n");
+printf("\t\t2. Complemento a 9\n");
+printf("\t\t3. Complemento a 10\n");
+printf("\t\t4. Salir\n\n");
+printf("Elija una opcion: ");
+scanf("%i", &opc);
+
+switch(opc)
+{
+  case 1:
+
+	printf("\t\t\t\tCOMPLEMENTO A 2\n\n");
+	printf("\tIntroduza n£mero a transformar: ");
+	scanf("%i", &num);
+	printf("\n\n");
+
+	if((num>0)&&(num<=32768))
+	{
+		for(i=15; i>=0; i--)
+		{
+			cont=(num%2);
+			num=num/2;
+			NP[i]=cont;
+		}
+		for(i=0; i<16; i++)
+		{
+			printf("%i", NP[i]);
+		}
+	}
+	else if((num<0)&&(num>=-32768))
+	{
+	for(j=15; j>=0; j--)
+	{
+		cont=(num%2);
+		num=num/2;
+		NN[j]=cont;
+	}
+	for(i=15; i>=0; i--)
+	{
+	if(NN[i]!=0)
+	{
+		NN[i]=1;
+		i--;
+		while(i>-1)
+		{
+			if (NN[i]==-1)
+			{
+				NN[i]=0;
+			}
+			else
+			{
+				NN[i]=1;
+			}
+				i--;
+		}
+		i=-1;
+	}
+	}
+	for(i=0; i<=15; i++)
+	{
+		printf("%i", NN[i]);
+	}
+	}
+	getch();
+	break;
+
+	case 2:
+
+	printf("\t\t\tCOMPLEMENTO A 9\n\n");
+	printf("Introduzca el valor del Minuendo: ");
+	scanf("%i", &m);
+	printf("\n");
+	printf("Introduzca el valor del Sustraendo: ");
+	scanf("%i", &s);
+	printf("\n\n");
+	dif1=(999-s);
+	printf("999 - %i = %i", s, dif1);
+	printf("\n\n");
+	getch();
+	dif2=(dif1+m);
+	printf("%i + %i = %i", dif1, m, dif2);
+	printf("\n\n");
+	getch();
+	dif3=(dif2+1)-1000;
+	printf("A %i se le quita el n£mero de la UNIDAD DE MILLAR y se le suma \n", dif2);
+	printf("a la misma unidad del resultado, dando como respuesta %i", dif3);
+	getch();
+	break;
+
+	case 3:
+;
+	printf("\t\t\t\tCOMPLEMENTO A 10\n\n");
+	printf("Introduzca el valor del Minuendo: ");
+	scanf("%i", &m);
+	printf("\n");
+	printf("Introduzca el valor del Sustraendo: ");
+	scanf("%i", &s);
+	printf("\n\n");
+	dif1=(999-s);
+	printf("999 - %i = %i", s, dif1);
+	printf("\n\n");
+	getch();
+	d=dif1+1;
+	printf("%i + 1 = %i", dif1, d);
+	printf("\n\n");
+	getch();
+	dif2=(d+m);
+	printf("%i + %i = %i", d, m, dif2);
+	printf("\n\n");
+	getch();
+	total=(dif2-1000);
+	printf("%i - 1000 = %i", dif2, total);
+	getch();
+	break;
+
+	case 4:
+	break;
+	}
+}
+getch();
+}
