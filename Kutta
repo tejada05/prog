@@ -1,0 +1,52 @@
+#include<iostream.h>
+#include<math.h> 
+#include<stdio.h> 
+#include<stdlib.h> 
+#include<conio.h> 
+
+float fx(float x, float y); 
+
+main() 
+{ 
+float x[50],y[50],xf,h,k1,k2,k3,k4; 
+int N,i; 
+clrscr();
+printf("\t\t\tMETODO DE RUNGE-KUTTA\n\n");
+printf("Valor inicial de x: \n");
+scanf("%f",&x[0]);
+printf("Valor final de x: \n");
+scanf("%f",&xf);
+printf("Valor inicial de y: \n");
+scanf("%f",&y[0]);
+printf("No. de divisiones a realizar: \n");
+scanf("%d",&N);
+h=(xf-x[0])/N;
+clrscr();
+printf("\n%f\n",h);
+
+for(i=0;i<=N;i++)
+{
+  x[i]=x[0]+h*i;
+	printf("\n%f",x[i]);
+}
+printf("\nYi\n");
+for(i=1;i<=N;i++)
+{
+	k1=fx(x[i-1],y[i-1]);
+	k2=fx(x[i-1]+(h/2),y[i-1]+(k1/2));
+	k3=fx(x[i-1]+(h/2),y[i-1]+(k2/2));
+	k4=fx(x[i-1]+h,y[i-1]+k3);
+	y[i]=y[i-1]+(h/6)*(k1+2*k2+2*k3+k4);
+	printf("\n y[%d]=%f \n",i,y[i]);
+}
+printf("\n Y[%.1f]= %f\n",xf,y[N]);
+getch();
+return 0;
+}
+float fx(float x,float y)
+{
+	float fx1;
+	fx1=sqrt(pow(x,2)+pow(y,2));
+	return fx1;
+getch();
+}
