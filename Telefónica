@@ -1,0 +1,65 @@
+import java.io.*;
+
+class Telefonia {
+
+private String name;
+private int cuenta;
+private float  minutos;
+
+public void asignar(String n, int c, int m){
+  name=n;
+	cuenta=c;
+	minutos=m;
+}
+
+public float consumo(){
+	float a;
+
+	if (minutos > 1800 ){
+			a = 1800 * 0.10f + (minutos-1800)*0.05f +13.50f;
+	}
+	else{
+		if (minutos == 1800){
+			a= (minutos * 0.15f) + 13.50f;
+		}
+		else{
+			a= (minutos * 0.20f) + 13.50f;
+		}
+	}
+	return a;
+}
+
+}
+
+
+class Telefonia_p {
+
+	public static void main (String args[]){
+
+		BufferedReader br = new
+			BufferedReader (new InputStreamReader(System.in));
+		Telefonia obj = new Telefonia();
+
+		String n;
+		int c;
+		int m;
+
+		try {
+
+		System.out.println("Ingrese el Nombre del Cliente ");
+		n= br.readLine();
+		System.out.println("Ingrese el Numero de Cuenta");
+		c= Integer.parseInt(br.readLine());
+		System.out.println("Ingrese los Minutos Consumidos");
+		m= Integer.parseInt(br.readLine());
+
+		System.out.println("El Costo a Pagar para el Cliente "+ n + "Con Numero de Cuenta "+ c + " y con " + m + "Total de Minutos Consumidos es de "+ obj.consumo());
+
+		obj.asignar(n,c,m);
+		}
+
+		catch ( Exception ex) {
+			System.out.println("E R R O R");
+		}
+	}
+}
