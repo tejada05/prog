@@ -1,0 +1,154 @@
+//PARCIAL 2
+//Julio Cesar Ruiz Tejada
+//8-860-695
+
+import java.io.*;
+ 
+public class Estaciones 
+{
+  private String mes;
+	private int dia;
+	
+	public void asignar(String m,int d)
+	{
+		mes = m;
+		dia = d;
+	}
+	
+	public String meses()
+	{
+		int d;
+		String m;			
+		String resp="¡exelente!";
+						
+		switch(mes)
+		{
+			case "enero":
+				if(dia>=1 && dia<=31)
+				{
+					resp = "Invierno";
+				}
+			break;
+			case "febrero":
+				if(dia>=1 && dia<=29)
+				{
+					resp = "Invierno";
+				}
+			break;
+			case "marzo":
+				if(dia>=1 && dia<=20)
+				{
+					resp = "Invierno";
+				}
+				else
+				{
+					if(dia>=21 && dia<=31)
+					{
+						resp = "Primavera";
+					}
+				}		
+			break;
+			case "abril":
+					if(dia>=1 && dia<=30)
+					{
+						resp = "Primavera";
+					}
+			break;
+			case "mayo":
+					if(dia>=1 && dia<=31)
+					{
+						resp = "Primavera";
+					}
+			break;
+			case "junio":
+					if(dia>=1 && dia<=20)
+					{
+						resp = "Primavera";
+					}
+					else
+					{
+						if(dia>=21 && dia<=30)
+						{		
+							resp = "Verano";
+						}
+					}						
+			break;
+			case "julio":
+					if(dia>=1 && dia<=31)
+					{
+						resp = "Verano";
+					}			
+			break;
+			case "agosto":
+					if(dia>=1 && dia<=31)
+					{
+						resp = "Verano";
+					}
+			break;
+			case "septiembre":
+			    	if(dia>=1 && dia<=22)
+			    	{
+						resp = "Verano";
+					}
+					else
+					{
+						if(dia>=23 && dia<=30)
+						{
+							resp = "Otoño";
+						}
+					}	
+			break;
+			case "octubre":
+			    	if(dia>=1 && dia<=31)
+			    	{
+						resp = "Otoño";
+					}
+			break;
+			case "noviembre":
+					if(dia>=1 && dia<=30)
+					{
+						resp = "Otoño";
+					}
+			break;
+			case "diciembre":								
+					if(dia>=1 && dia<=21)
+					{
+						resp = "Otoño";
+					}
+					else
+					{
+						if(dia>=22 && dia<=31)
+						{
+							resp = "Invierno";
+						}
+					}
+			break;
+		}
+			return resp;
+	}
+	
+    public static void main(String[] args) 
+    {
+    	Estaciones es = new Estaciones();
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       
+        String m;
+		int d;
+        String cad;
+               
+        try
+        {
+                System.out.println("Introduzca el mes (en palabra): ");
+                m = br.readLine();
+                System.out.println("Introduzca el dia: ");
+                cad = br.readLine();
+                d = Integer.parseInt(cad);
+                es.asignar (m,d);
+                System.out.println("La estacion es " + es.meses());
+        }
+        catch(Exception ex)
+        {
+        		System.out.println("ERROR");
+        }
+    }
+}
