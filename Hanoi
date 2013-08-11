@@ -1,0 +1,33 @@
+#include <conio.h>
+#include <stdio.h>
+
+void torres(int, char,char,char);
+int num;
+char A,B,C;
+main()
+{
+clrscr();
+printf("\nInserte un numero menos de 10 para realizar la operacion: ");
+scanf("%d",&num);
+torres(num,'A','C','B');
+getch();
+}
+void torres(int num, char inicial,char final,char auxiliar)
+{
+if(num==1)
+{
+printf("\n%s %c %s %c", "Mover de la varilla Inicial",inicial ,"a la final",final);
+printf("\n\n");
+getch();
+return;
+}
+else
+{
+torres(num-1,inicial,auxiliar,final);
+printf("\n%s %d %s %c %s %c", "Mover disco", num, "De Varilla inicial ", inicial, "a la varilla Final",final);
+printf("\n\n");
+torres(num-1,auxiliar,final,inicial);
+}
+getch();
+}
+
