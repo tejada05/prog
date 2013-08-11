@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <math.h>
+#include <conio.h>
+
+void main()
+{
+float p, a, l;
+int opc;
+clrscr();
+
+printf("1- Area\n");
+printf("2- Perimetro\n");
+printf("Escoja una Opcion: ");
+scanf("%i", &opc);
+clrscr();
+switch(opc)
+{
+   case 1:
+  	  printf("Introduzca la Medida de los Lados: ");
+		  scanf("%f", &l);
+		  a = l*l;
+		  printf("\nEl ");
+		  textcolor(14); cprintf("Area");
+		  printf(" del CUADRADO es de");
+		  textcolor(14); cprintf(" %.2f metros cuadrados", a);
+
+	gotoxy(31,14); textcolor(12);
+	cprintf("Area = %.2f metros",a);
+
+   window(33, 6, 52, 25); textbackground(BLACK);
+{
+gotoxy(1,1);
+for(int borde=2; borde<=8; borde++)
+ {
+	gotoxy(2, borde); textcolor(15); cprintf("%c", 179);
+	gotoxy(14, borde); textcolor(15); cprintf("%c", 179);
+ }
+
+for(int co=2; co<=14; co++)
+ {
+	gotoxy(co,2); textcolor(15); cprintf("%c", 196);
+	gotoxy(co,8); textcolor(15); cprintf("%c", 196);
+ }
+
+	gotoxy(2,8); textcolor(15); cprintf("%c",192);
+	gotoxy(14,8); textcolor(15); cprintf("%c",217);
+	gotoxy(2,2); textcolor(15); cprintf("%c",218);
+	gotoxy(14,2); textcolor(15); cprintf("%c",191);
+
+	for(int ver=3; ver<=7; ver++)
+	{
+		for(int hor=3; hor<=13; hor++)
+		{
+		gotoxy(hor,ver); textcolor(3); cprintf("%c", 178);
+		}
+	}
+}
+
+break;
+
+   case 2:
+		  printf("Introduzca la Medida de los Lados: ");
+		  scanf("%f", &l);
+		  p = 4*l;
+		  printf("\nEl ");
+		  textcolor(2); cprintf("Perimetro");
+          printf(" del CUADRADO es de");
+          textcolor(2); cprintf(" %.2f metros", p);
+
+	gotoxy(31,14); textcolor(12);
+	cprintf("Perimetro = %.2f metros",p);
+
+   window(33, 6, 52, 25); textbackground(BLACK);
+{
+gotoxy(1,1);
+for(int borde=2; borde<=8; borde++)
+ {
+	gotoxy(2, borde); textcolor(15); cprintf("%c", 179);
+	gotoxy(14, borde); textcolor(15); cprintf("%c", 179);
+ }
+
+for(int co=2; co<=14; co++)
+ {
+	gotoxy(co,2); textcolor(15); cprintf("%c", 196);
+	gotoxy(co,8); textcolor(15); cprintf("%c", 196);
+ }
+
+	gotoxy(2,8); textcolor(15); cprintf("%c",192);
+	gotoxy(14,8); textcolor(15); cprintf("%c",217);
+	gotoxy(2,2); textcolor(15); cprintf("%c",218);
+	gotoxy(14,2); textcolor(15); cprintf("%c",191);
+
+	for(int ver=3; ver<=7; ver++)
+	{
+		for(int hor=3; hor<=13; hor++)
+		{
+		gotoxy(hor,ver); textcolor(3); cprintf("%c", 178);
+		}
+	}
+}
+
+break;
+}
+getch();
+}
